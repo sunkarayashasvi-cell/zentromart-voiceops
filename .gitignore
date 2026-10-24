@@ -1,0 +1,4 @@
+.env
+*.wav
+chroma_db/
+__pycache__/

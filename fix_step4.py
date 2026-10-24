@@ -94,8 +94,8 @@ q_df["question_id"] = range(1, len(q_df) + 1)
 completed_ids = set(valid_df["turn_id"])
 missing_df = q_df[~q_df["question_id"].isin(completed_ids)]
 
-print(f"📊 Valid turns in CSV: {len(valid_df)}/52")
-print(f"🚀 Processing missing turn IDs: {missing_df['question_id'].tolist()}...\n")
+print(f" Valid turns in CSV: {len(valid_df)}/52")
+print(f" Processing missing turn IDs: {missing_df['question_id'].tolist()}...\n")
 
 new_rows = []
 for idx, row in missing_df.iterrows():
@@ -121,6 +121,6 @@ final_df = final_df.sort_values("turn_id")
 
 try:
     final_df.to_csv("step4_voice_results.csv", index=False)
-    print(f"\n🎉 SUCCESS! All {len(final_df)}/52 turns are clean and saved to step4_voice_results.csv!")
+    print(f"\nSUCCESS! All {len(final_df)}/52 turns are clean and saved to step4_voice_results.csv!")
 except PermissionError:
-    print("\n⚠️ Close step4_voice_results.csv in Excel/file viewers and re-run!")
+    print("\n Close step4_voice_results.csv in Excel/file viewers and re-run!")
